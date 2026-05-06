@@ -1142,9 +1142,8 @@ def main():
             cv2.circle(frame, center, 3, color, -1)
 
             if SHOW_TRAIL:
-                pts = list(analyzer.trails[tid])
-                for i in range(1, len(pts)):
-                    cv2.line(frame, pts[i - 1], pts[i], (180, 180, 180), 1)
+                pts = np.array(analyzer.trails[tid], np.int32).reshape((-1, 1, 2))
+                cv2.polylines(frame, [pts], isClosed=False, color=(180, 180, 180), thickness=1)
 
             line_confirmed = analyzer.confirm_line_cross(
                 tid,
