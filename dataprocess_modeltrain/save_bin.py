@@ -5,9 +5,9 @@ from pathlib import Path
 import cv2
 import numpy as np
 
+from models import MODEL_IMAGE_SIZE
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"}
-MODEL_IMAGE_SIZE = 320
 NORM_MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32).reshape(3, 1, 1)
 NORM_STD = np.array([0.229, 0.224, 0.225], dtype=np.float32).reshape(3, 1, 1)
 
